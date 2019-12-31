@@ -2,51 +2,55 @@ import * as React from "react";
 import Routes from "./routes";
 import Select from "./components/Select";
 
-const options = require('./dumbData.json');
+const options = require("./dumbData.json");
 // const options = [
 //   { value: 'chocolate', label: 'Chocolate' },
 //   { value: 'strawberry', label: 'Strawberry' },
 //   { value: 'vanilla', label: 'Vanilla' },
 // ];
 
+// const optionsAsync = async () =>
+//   await fetch("https://jsonplaceholder.typicode.com/posts")
+//     .then(response => response.json())
+//     .then(jsonData => {
+//       let asd = [];
+//       for (var k in jsonData) {
+//         asd.push({ value: jsonData[k].id, label: jsonData[k].title });
+//       }
+//       // jsonData is parsed json object received from url
+//       console.log(asd);
+//       return asd;
+//     })
+//     .catch(error => {
+//       // handle your errors here
+//       console.error(error);
+//     });
 
+// optionsAsync();
 
-const optionsAsync = async () =>( 
-await fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => response.json())
-  .then((jsonData) => {
-    let asd = [];
-    for (var k in jsonData) {
-      asd.push({value: jsonData[k].id, label:jsonData[k].title})
-    }
-    // jsonData is parsed json object received from url
-    console.log(asd)
-    return asd;
-  })
-  .catch((error) => {
-    // handle your errors here
-    console.error(error)
-  }));
-
-  optionsAsync();
-  
 class App extends React.Component {
-
-   options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+  options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" }
   ];
-  render() {
-   
+
+  render(): any {
     return (
-     <Select className="iowqeio asd" multiple={true} disabled={false} searchable={true} name="ASD" options={options} placeholder={'ALOOOO'}  emptySelectMsg={'nothing to see here'}/>
+      <Select
+        className="iowqeio asd"
+        multiple
+        disabled={false}
+        searchable
+        name="ASD"
+        options={options}
+        placeholder="ALOOOO"
+        emptySelectMsg="nothing to see here"
+      />
     );
   }
 }
 export default App;
-
-
 
 // autoFocus - focus the control when it mounts
 // className - apply a className to the control
